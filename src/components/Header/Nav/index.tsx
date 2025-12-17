@@ -1,0 +1,80 @@
+'use client';
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import styles from './Nav.module.scss';
+import Body from '../Body';
+import Image from '../Image';
+import heroImg from "@/assets/cat.png";
+import catImg from "@/assets/hero.jpg";
+import Footer from '@/components/Footer';
+// import Footer from './Footer';
+// import Image from './Image';
+
+const links = [
+    {
+        title: 'Home',
+        href: '#home',
+        src: catImg
+    },
+    {
+        title: 'About',
+        href: '#about',
+        src: catImg
+    },
+    {
+        title: 'Showcase',
+        href: '#showcase',
+        src: heroImg
+    },
+    {
+        title: 'Contact',
+        href: '#contact',
+        src: catImg
+    },
+];
+
+const transition = { duration: 1, ease: [0.76, 0, 0.24, 1] as const };
+
+const height = {
+    initial: {
+        height: 0,
+    },
+
+    enter: {
+        height: 'auto',
+
+        transition,
+    },
+
+    exit: {
+        height: 0,
+
+        transition,
+    },
+};
+
+export default function Index() {
+    const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
+
+    return (
+        <motion.div
+            variants={height}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            className={styles.nav}
+        >
+            <div className={styles.wrapper}>
+                <div className={styles.container}>
+                    <Body
+                        links={links}
+                        selectedLink={selectedLink}
+                        setSelectedLink={setSelectedLink}
+                    />
+                    <Footer />
+                </div>
+                <Image src={links[selectedLink.index].src} selectedLink={selectedLink} />
+            </div>
+        </motion.div>
+    );
+}

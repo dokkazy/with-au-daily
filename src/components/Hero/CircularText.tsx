@@ -44,6 +44,7 @@ const CircularText: React.FC<CircularTextProps> = ({
 
   useEffect(() => {
     const start = rotation.get();
+    // @ts-expect-error - Motion package transition type mismatch
     controls.start({
       rotate: start + 360,
       scale: 1,
@@ -80,6 +81,7 @@ const CircularText: React.FC<CircularTextProps> = ({
         transitionConfig = getTransition(spinDuration, start);
     }
 
+    // @ts-expect-error - Motion package transition type mismatch
     controls.start({
       rotate: start + 360,
       scale: scaleVal,
@@ -89,6 +91,7 @@ const CircularText: React.FC<CircularTextProps> = ({
 
   const handleHoverEnd = () => {
     const start = rotation.get();
+    // @ts-expect-error - Motion package transition type mismatch
     controls.start({
       rotate: start + 360,
       scale: 1,
