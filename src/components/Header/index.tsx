@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './Header.module.scss';
-import { motion, AnimatePresence } from 'motion/react';
-import Nav from './Nav'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react';
+import Nav from './Nav';
 
 const opacity = {
     open: {
@@ -14,28 +14,53 @@ const opacity = {
     },
 };
 
-
 const transition = { duration: 1, ease: [0.76, 0, 0.24, 1] as const };
 
 const background = {
     initial: {
-        height: 0
+        height: 0,
     },
     open: {
-        height: "100vh",
-        transition
+        height: '100vh',
+        transition,
     },
     closed: {
         height: 0,
-        transition
-    }
-}
+        transition,
+    },
+};
 
+const headerAnimation = {
+    hidden: {
+        y: '-100%',
+        transition: { duration: 0.35, ease: [0.76, 0, 0.24, 1] as const },
+    },
+    visible: {
+        y: 0,
+        transition: { duration: 0.35, ease: [0.76, 0, 0.24, 1] as const },
+    },
+};
 
 export default function Header() {
     const [isActive, setIsActive] = useState(false);
+    const { scrollY } = useScroll();
+    const [hidden, setHidden] = useState(false);
+    
+
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+        if (latest > 0) {
+            setHidden(true);
+        } else {
+            setHidden(false);
+        }
+    });
+
     return (
-        <div className={styles.header}>
+        <motion.div
+            variants={headerAnimation}
+            animate={hidden && !isActive ? 'hidden' : 'visible'}
+            className={styles.header}
+        >
             <div className={styles.bar}>
                 <a href="/">With Au Daily</a>
 
@@ -60,12 +85,13 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-             <AnimatePresence mode="wait">
-
-                {isActive && <Nav/>}
-
-            </AnimatePresence>
-             <motion.div variants={background} initial="initial" animate={isActive ? "open" : "closed"} className={styles.background}></motion.div>
-        </div>
+            <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+            <motion.div
+                variants={background}
+                initial="initial"
+                animate={isActive ? 'open' : 'closed'}
+                className={styles.background}
+            ></motion.div>
+        </motion.div>
     );
 }

@@ -4,11 +4,9 @@ import { motion } from 'motion/react';
 import styles from './Nav.module.scss';
 import Body from '../Body';
 import Image from '../Image';
+import Footer from '../Footer';
 import heroImg from "@/assets/cat.png";
 import catImg from "@/assets/hero.jpg";
-import Footer from '@/components/Footer';
-// import Footer from './Footer';
-// import Image from './Image';
 
 const links = [
     {
