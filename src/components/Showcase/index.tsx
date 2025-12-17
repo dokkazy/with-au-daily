@@ -56,7 +56,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
             style={{ scale, rotate }}
             className="relative h-screen w-full bg-white"
         >
-            <div className="relative mx-auto max-w-7xl space-y-24 py-24">
+            <div className="relative mx-auto max-w-7xl space-y-16 pt-6">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
                     <h2 className="font-bodoni text-7xl font-semibold tracking-tight">SHOWCASE</h2>
                     <p className="text-center font-red-rose text-xl">
@@ -79,7 +79,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                     style={{
                                         borderRadius: '12px',
                                     }}
-                                    className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+                                    className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-[#f4f0ea] dark:border-zinc-50/10 dark:bg-zinc-900"
                                 >
                                     <MorphingDialogImage
                                         src={item.img}
@@ -109,12 +109,12 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                         style={{
                                             borderRadius: '24px',
                                         }}
-                                        className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white sm:w-125 dark:border-zinc-50/10 dark:bg-zinc-900"
+                                        className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-[#f4f0ea] sm:w-125 dark:border-zinc-50/10 dark:bg-zinc-900"
                                     >
                                         <MorphingDialogImage
                                             src={item.img}
                                             alt={`Image for ${item.title}`}
-                                            className="h-full w-full"
+                                            className="h-[300px] w-full object-cover"
                                         />
                                         <div className="p-6">
                                             <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 font-red-rose">
