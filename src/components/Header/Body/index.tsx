@@ -49,9 +49,10 @@ type BodyProps = {
     }[];
     selectedLink: { isActive: boolean; index: number };
     setSelectedLink: (link: { isActive: boolean; index: number }) => void;
+    setIsActive: (isActive: boolean) => void;
 };
 
-export default function Body({ links, selectedLink, setSelectedLink }: BodyProps) {
+export default function Body({ links, selectedLink, setSelectedLink, setIsActive }: BodyProps) {
     const getChars = (word: string) => {
         const chars: JSX.Element[] = [];
         word.split('').forEach((char, i) => {
@@ -76,7 +77,7 @@ export default function Body({ links, selectedLink, setSelectedLink }: BodyProps
             {links.map((link, index) => {
                 const { title, href } = link;
                 return (
-                    <a key={`l_${index}`} href={href}>
+                    <a key={`l_${index}`} href={href} onClick={() => setIsActive(false)}>
                         <motion.p
                             onMouseOver={() => {
                                 setSelectedLink({ isActive: true, index });

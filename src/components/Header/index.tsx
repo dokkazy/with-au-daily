@@ -85,7 +85,7 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+            <AnimatePresence mode="wait">{isActive && <Nav setIsActive={setIsActive} />}</AnimatePresence>
             <motion.div
                 variants={background}
                 initial="initial"

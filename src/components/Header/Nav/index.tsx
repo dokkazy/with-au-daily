@@ -51,7 +51,7 @@ const height = {
     },
 };
 
-export default function Index() {
+export default function Nav({setIsActive} : {setIsActive: (isActive: boolean) => void}) {
     const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
 
     return (
@@ -68,6 +68,7 @@ export default function Index() {
                         links={links}
                         selectedLink={selectedLink}
                         setSelectedLink={setSelectedLink}
+                        setIsActive={setIsActive}
                     />
                     <Footer />
                 </div>

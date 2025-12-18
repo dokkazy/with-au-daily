@@ -54,9 +54,9 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
         <motion.div
             id="showcase"
             style={{ scale, rotate }}
-            className="relative h-screen w-full bg-white"
+            className="relative h-dvh w-full bg-white"
         >
-            <div className="relative mx-auto max-w-7xl space-y-16 pt-6">
+            <div className="relative mx-auto max-w-7xl space-y-16 py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
                     <h2 className="font-bodoni text-7xl font-semibold tracking-tight">SHOWCASE</h2>
                     <p className="text-center font-red-rose text-xl">
@@ -114,7 +114,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                         <MorphingDialogImage
                                             src={item.img}
                                             alt={`Image for ${item.title}`}
-                                            className="h-[300px] w-full object-cover"
+                                            className="h-75 w-full object-cover"
                                         />
                                         <div className="p-6">
                                             <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 font-red-rose">

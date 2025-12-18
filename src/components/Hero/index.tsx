@@ -7,9 +7,9 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, -1]);
     return (
-        <motion.div style={{ scale, rotate }} className={styles.main}>
+        <motion.div id="home" style={{ scale, rotate }} className={styles.main}>
             <div className="container">
                 <img className="absolute h-full w-full object-cover" src={heroImg} alt="Hero" />
 
