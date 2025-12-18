@@ -12,7 +12,7 @@ import Preloader from './components/Preloader';
 import Contact from './components/Contact';
 
 function App() {
-    const isDesktop = useMediaQuery({ minWidth: 1280 });
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
     const container = useRef<HTMLDivElement>(null);
     const { isLoading, setLoading } = useLoadingStore();
 
@@ -38,7 +38,7 @@ function App() {
 
             window.scrollTo(0, 0);
         }, 2000);
-    }, []);
+    }, [setLoading]);
 
     return (
         <>

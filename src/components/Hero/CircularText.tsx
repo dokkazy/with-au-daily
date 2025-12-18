@@ -116,7 +116,7 @@ const CircularText: React.FC<CircularTextProps> = ({
         const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
 
         return (
-          <span key={i} style={{ transform, WebkitTransform: transform }}>
+          <span key={i} className="font-red-rose" style={{ transform, WebkitTransform: transform }}>
             {letter}
           </span>
         );

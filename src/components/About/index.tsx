@@ -9,10 +9,10 @@ export default function About() {
                 <div className="absolute grid h-full w-full grid-cols-12">
                     <div className="relative col-span-6 h-full bg-gray-200">
                         <div className="absolute top-1/2 left-1/2 flex max-w-150 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center space-y-6 text-black">
-                            <SparklesText className="font-bodoni flex scroll-m-20 flex-col justify-center pb-2 text-left text-7xl font-medium tracking-tight first:mt-0">
-                                <span>STUDY</span> <span>AND BEAUTY 𝜗ৎ</span>
+                            <SparklesText className="font-bodoni flex scroll-m-20 flex-col justify-center pb-2 text-left text-5xl 2xl:text-7xl font-medium tracking-tight first:mt-0">
+                                STUDY AND BEAUTY
                             </SparklesText>
-                            <p className="font-red-rose flex flex-col text-center text-xl">
+                            <p className="font-red-rose flex flex-col text-center text-sm 2xl:text-xl">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint
                                 deleniti maiores facilis, quas dignissimos animi! Odit aspernatur
                                 totam at maiores, quisquam dolore aliquid accusantium illo debitis,

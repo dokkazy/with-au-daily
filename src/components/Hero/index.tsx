@@ -14,10 +14,10 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
                 <img className="absolute h-full w-full object-cover" src={heroImg} alt="Hero" />
 
                 <div className="absolute top-1/2 left-1/2 flex max-w-150 -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center space-y-6 text-white">
-                    <h2 className="font-bodoni flex scroll-m-20 flex-col justify-center pb-2 text-left text-7xl font-semibold tracking-tight first:mt-0">
+                    <h2 className="font-bodoni flex scroll-m-20 flex-col justify-center pb-2 text-left text-5xl font-semibold tracking-tight first:mt-0 2xl:text-7xl">
                         <span>STUDY</span> <span>AND BEAUTY 𝜗ৎ</span>
                     </h2>
-                    <p className="font-red-rose flex flex-col text-center text-xl">
+                    <p className="font-red-rose flex flex-col text-center text-lg 2xl:text-xl">
                         <span>
                             Không gian nhỏ để bạn{' '}
                             <strong className="italic">get ready with your life</strong> 𝜗ৎ nơi mỗi

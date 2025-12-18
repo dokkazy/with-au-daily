@@ -7,6 +7,8 @@ import Image from '../Image';
 import Footer from '../Footer';
 import heroImg from "@/assets/cat.png";
 import catImg from "@/assets/hero.jpg";
+import whitehairImg from "@/assets/whitehair.jpg";
+import aboutImg from "@/assets/about.jpg";
 
 const links = [
     {
@@ -17,7 +19,7 @@ const links = [
     {
         title: 'About',
         href: '#about',
-        src: catImg
+        src: aboutImg
     },
     {
         title: 'Showcase',
@@ -27,7 +29,7 @@ const links = [
     {
         title: 'Contact',
         href: '#contact',
-        src: catImg
+        src: whitehairImg
     },
 ];
 
