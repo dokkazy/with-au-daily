@@ -7,8 +7,9 @@
 ## Technologies Used
 * React
 * TypeScript
-* CSS / Tailwind CSS *(depending on project configuration)*
+* SCSS / Tailwind CSS *(depending on project configuration)*
 * Shadcn
+* framer-motion
 
 ## Local Setup and Run
 
@@ -40,7 +41,7 @@ pnpm dev
 Open your browser and navigate to:
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ## Notes
