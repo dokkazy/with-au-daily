@@ -2,7 +2,7 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 import styles from './Hero.module.scss';
 import { ShinyButton } from '@/components/ui/shiny-button';
 // import CircularText from './CircularText';
-import auImg from '@/assets/IMG_7921.jpg';
+import auImg from '@/assets/au-img.jpg';
 // import heroImg from '@/assets/hero 2.jpg';
 export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
