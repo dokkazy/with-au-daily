@@ -6,10 +6,10 @@ import { useMediaQuery } from 'react-responsive';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Showcase from '@/components/Showcase';
-import About from '@/components/About';
 import { useLoadingStore } from './store/loading-store';
 import Preloader from './components/Preloader';
 import Contact from './components/Contact';
+import Feedback from '@/components/Feedback';
 
 function App() {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -57,7 +57,7 @@ function App() {
                         <Hero scrollYProgress={scrollYProgress} />
                         <Showcase scrollYProgress={scrollYProgress} />
                     </div>
-                    <About />
+                    <Feedback />
                     <Contact />
                 </main>
             ) : (

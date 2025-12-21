@@ -11,38 +11,40 @@ import {
     MorphingDialogDescription,
     MorphingDialogContainer,
 } from './morphing-dialog';
-import heroImg from '@/assets/hero.jpg';
+import beautyImg from '@/assets/beauty.jpg';
+import studyImg from '@/assets/study.jpg';
+import activitiesImg from '@/assets/actitvities.jpg';
 
 const showcaseData = [
     {
         id: 1,
-        title: 'EB27',
+        title: 'Beauty 𝜗ৎ',
         subtitle: 'Edouard Wilfrid Buquet',
         description:
             'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
         longDescription:
             'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
-        img: heroImg,
+        img: beautyImg,
     },
     {
         id: 2,
-        title: 'EB27',
+        title: 'Study 𝜗ৎ',
         subtitle: 'Edouard Wilfrid Buquet',
         description:
             'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
         longDescription:
             'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
-        img: heroImg,
+        img: studyImg,
     },
     {
         id: 3,
-        title: 'EB27',
+        title: 'Actitivties 𝜗ৎ',
         subtitle: 'Edouard Wilfrid Buquet',
         description:
             'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
         longDescription:
             'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
-        img: heroImg,
+        img: activitiesImg,
     },
 ];
 
@@ -56,13 +58,13 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
             style={{ scale, rotate }}
             className="relative h-dvh w-full bg-white"
         >
-            <div className="relative mx-auto max-w-7xl space-y-16 py-12">
+            <div className="relative mx-auto max-w-7xl space-y-12 py-8 2xl:space-y-16 2xl:py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
-                    <h2 className="font-bodoni text-7xl font-semibold tracking-tight">SHOWCASE</h2>
-                    <p className="text-center font-red-rose text-xl">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam consectetur
-                        quam libero quaerat reiciendis autem, dolor cupiditate, exercitationem et
-                        dolores est nisi ipsam qui nam molestiae sit quae delectus aut.
+                    <h2 className="font-bodoni text-7xl font-semibold tracking-tight">
+                        ART STUDY
+                    </h2>
+                    <p className="font-red-rose text-center text-xl">
+                        “Get ready with my study and work hard for my dream.”🦢.⋆
                     </p>
                 </div>
                 <div className="grid grid-cols-2 place-items-center gap-12 lg:grid-cols-3">
@@ -79,25 +81,25 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                     style={{
                                         borderRadius: '12px',
                                     }}
-                                    className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-[#f4f0ea] dark:border-zinc-50/10 dark:bg-zinc-900"
+                                    className="flex w-full flex-col overflow-hidden border border-zinc-950/10 bg-(--color-red-inferno) dark:border-zinc-50/10 dark:bg-zinc-900"
                                 >
                                     <MorphingDialogImage
                                         src={item.img}
                                         alt={`Image for ${item.title}`}
-                                        className="h-full w-full object-cover"
+                                        className="h-80 w-full object-cover 2xl:h-96"
                                     />
                                     <div className="flex grow flex-row items-end justify-between px-3 py-2">
                                         <div>
-                                            <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50 font-red-rose">
+                                            <MorphingDialogTitle className="font-red-rose text-white dark:text-zinc-50">
                                                 {item.title}
                                             </MorphingDialogTitle>
-                                            <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400 font-red-rose">
+                                            <MorphingDialogSubtitle className="font-red-rose text-white dark:text-zinc-400">
                                                 {item.subtitle}
                                             </MorphingDialogSubtitle>
                                         </div>
                                         <button
                                             type="button"
-                                            className="relative ml-1 flex h-6 w-6 shrink-0 scale-100 appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors select-none hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
+                                            className="relative ml-1 flex h-6 w-6 shrink-0 scale-100 appearance-none items-center justify-center rounded-lg border border-white text-white transition-colors select-none hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
                                             aria-label="Open dialog"
                                         >
                                             <PlusIcon size={12} />
@@ -109,7 +111,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                         style={{
                                             borderRadius: '24px',
                                         }}
-                                        className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-[#f4f0ea] sm:w-125 dark:border-zinc-50/10 dark:bg-zinc-900"
+                                        className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-(--color-red-inferno) sm:w-125 dark:border-zinc-50/10 dark:bg-zinc-900"
                                     >
                                         <MorphingDialogImage
                                             src={item.img}
@@ -117,10 +119,10 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                             className="h-75 w-full object-cover"
                                         />
                                         <div className="p-6">
-                                            <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50 font-red-rose">
+                                            <MorphingDialogTitle className="font-red-rose text-2xl text-white dark:text-zinc-50">
                                                 {item.title}
                                             </MorphingDialogTitle>
-                                            <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400 font-red-rose">
+                                            <MorphingDialogSubtitle className="font-red-rose text-white dark:text-zinc-400">
                                                 {item.subtitle}
                                             </MorphingDialogSubtitle>
                                             <MorphingDialogDescription
@@ -131,14 +133,14 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                                     exit: { opacity: 0, scale: 0.8, y: 100 },
                                                 }}
                                             >
-                                                <p className="mt-2 text-zinc-500 dark:text-zinc-500 font-red-rose">
+                                                <p className="font-red-rose mt-2 text-white dark:text-zinc-500">
                                                     {item.description}
                                                 </p>
-                                                <p className="text-zinc-500 font-red-rose">
+                                                <p className="font-red-rose text-white">
                                                     {item.longDescription}
                                                 </p>
                                                 <a
-                                                    className="mt-2 inline-flex text-zinc-500 underline font-red-rose"
+                                                    className="font-red-rose mt-2 inline-flex text-white underline"
                                                     href="https://www.are.na/block/12759029"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
