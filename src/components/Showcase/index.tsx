@@ -14,6 +14,8 @@ import {
 import beautyImg from '@/assets/beauty.jpg';
 import studyImg from '@/assets/study.jpg';
 import activitiesImg from '@/assets/actitvities.jpg';
+import { useMediaQuery } from 'react-responsive';
+import { cn } from '@/lib/utils';
 
 const showcaseData = [
     {
@@ -48,28 +50,33 @@ const showcaseData = [
     },
 ];
 
-export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+export default function Showcase({
+    scrollYProgress,
+}: {
+    scrollYProgress: MotionValue<number>;
+}) {
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
     const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-
     const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+
     return (
         <motion.div
             id="showcase"
-            style={{ scale, rotate }}
-            className="relative h-dvh w-full bg-white"
+            style={isDesktop ? { scale, rotate } : {}}
+            className={cn('relative w-full bg-white', isDesktop ? 'h-dvh' : 'min-h-dvh mb-24')}
         >
-            <div className="relative mx-auto max-w-7xl space-y-12 py-8 2xl:space-y-16 2xl:py-12">
+            <div className="xl:max-w-8xl relative mx-auto space-y-12 py-8 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
-                    <h2 className="font-bodoni text-7xl font-semibold tracking-tight">
+                    <h2 className="font-bodoni text-5xl font-semibold tracking-tight sm:text-7xl">
                         ART STUDY
                     </h2>
-                    <p className="font-red-rose text-center text-xl">
+                    <p className="font-red-rose text-center text-lg sm:text-xl">
                         “Get ready with my study and work hard for my dream.”🦢.⋆
                     </p>
                 </div>
-                <div className="grid grid-cols-2 place-items-center gap-12 lg:grid-cols-3">
+                <div className="grid grid-cols-1 place-items-center gap-x-12 gap-y-12 px-12 md:grid-cols-2 lg:grid-cols-3 2xl:gap-12">
                     {showcaseData.map((item) => (
-                        <div key={item.id} className="h-80 w-full">
+                        <div key={item.id} className="h-auto w-full">
                             <MorphingDialog
                                 transition={{
                                     type: 'spring',
@@ -86,7 +93,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                     <MorphingDialogImage
                                         src={item.img}
                                         alt={`Image for ${item.title}`}
-                                        className="h-80 w-full object-cover 2xl:h-96"
+                                        className="h-96 w-full object-cover sm:h-120 md:h-80 2xl:h-96"
                                     />
                                     <div className="flex grow flex-row items-end justify-between px-3 py-2">
                                         <div>
