@@ -11,6 +11,7 @@ import Preloader from './components/Preloader';
 import Contact from './components/Contact';
 import Feedback from '@/components/Feedback';
 import { cn } from '@/lib/utils';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 function App() {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -78,6 +79,7 @@ function App() {
                     <Preloader />
                 )}
             </AnimatePresence>
+            <ScrollProgress className="top-0" />
             <Header />
             <div
                 ref={container}

@@ -1,5 +1,6 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 import { PlusIcon } from 'lucide-react';
+import { useMediaQuery } from 'react-responsive';
 import {
     MorphingDialog,
     MorphingDialogTrigger,
@@ -14,7 +15,6 @@ import {
 import beautyImg from '@/assets/beauty.jpg';
 import studyImg from '@/assets/study.jpg';
 import activitiesImg from '@/assets/actitvities.jpg';
-import { useMediaQuery } from 'react-responsive';
 import { cn } from '@/lib/utils';
 
 const showcaseData = [
@@ -50,20 +50,16 @@ const showcaseData = [
     },
 ];
 
-export default function Showcase({
-    scrollYProgress,
-}: {
-    scrollYProgress: MotionValue<number>;
-}) {
+export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
     return (
         <motion.div
             id="showcase"
             style={isDesktop ? { scale, rotate } : {}}
-            className={cn('relative w-full bg-white', isDesktop ? 'h-dvh' : 'min-h-dvh mb-24')}
+            className={cn('relative min-h-dvh w-full bg-white', isDesktop ? '' : 'mb-24')}
         >
             <div className="xl:max-w-8xl relative mx-auto space-y-12 py-8 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">

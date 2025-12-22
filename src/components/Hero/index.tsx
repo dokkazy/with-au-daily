@@ -1,25 +1,33 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
+import { useMediaQuery } from 'react-responsive';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import auImg from '@/assets/au-img.jpg';
 import { cn } from '@/lib/utils';
-import { useMediaQuery } from 'react-responsive';
+// const charVariants = {
+//     hidden: { y: '100%', opacity: 0 },
+//     visible: {
+//         y: 0,
+//         opacity: 1,
+//         transition: {
+//             duration: 1.8,
+//             ease: easeOut,
+//             delay: 2, // 2000ms delay
+//         },
+//     },
+// };
 
-export default function Hero({
-    scrollYProgress,
-}: {
-    scrollYProgress: MotionValue<number>;
-}) {
+export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, -1]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
     return (
         <motion.div
             id="home"
             style={isDesktop ? { scale, rotate } : {}}
-            className={cn("w-full", isDesktop ? " sticky top-0 h-dvh" : "min-h-dvh mb-24")}
+            className={cn('w-full', isDesktop ? 'sticky top-0 h-dvh' : 'mb-24 min-h-dvh')}
         >
-            <div className="xl:max-w-8xl container mx-auto px-4 pt-24 sm:px-8 md:px-16 lg:max-w-7xl">
+            <div className="xl:max-w-8xl relative container mx-auto px-4 pt-24 sm:px-8 md:px-16 lg:max-w-7xl">
                 <div className="grid h-full w-full place-items-center gap-12 lg:grid-cols-2 lg:gap-6">
                     {/* Content - Left Column */}
                     <div className="flex flex-col items-center justify-center space-y-2 text-black sm:space-y-6">
