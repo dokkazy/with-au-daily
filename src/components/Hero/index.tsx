@@ -30,12 +30,12 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
             <div className="xl:max-w-8xl relative container mx-auto px-4 pt-24 sm:px-8 md:px-16 lg:max-w-7xl">
                 <div className="grid h-full w-full place-items-center gap-12 lg:grid-cols-2 lg:gap-6">
                     {/* Content - Left Column */}
-                    <div className="flex flex-col items-center justify-center space-y-2 text-black sm:space-y-6">
-                        <h2 className="font-bodoni flex scroll-m-20 flex-col items-start text-5xl font-semibold tracking-tight first:mt-0 sm:text-7xl">
+                    <div className="flex flex-col items-center justify-center space-y-4 text-black sm:space-y-6">
+                        <h2 className="font-bodoni flex scroll-m-20 flex-col items-start text-4xl font-semibold tracking-tight first:mt-0 sm:text-5xl lg:text-7xl">
                             <span>STUDY</span>
                             <span>AND BEAUTY 𝜗ৎ</span>
                         </h2>
-                        <p className="font-red-rose max-w-lg text-left text-lg sm:text-xl">
+                        <p className="font-red-rose max-w-lg text-left text-base sm:text-lg md:text-xl">
                             Không gian nhỏ để bạn{' '}
                             <strong className="italic">get ready with your life</strong> 𝜗ৎ nơi mỗi
                             buổi sáng bắt đầu bằng sự chăm sóc bản thân, và mỗi tối kết thúc bằng

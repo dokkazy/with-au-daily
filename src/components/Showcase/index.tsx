@@ -61,16 +61,16 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
             style={isDesktop ? { scale, rotate } : {}}
             className={cn('relative min-h-dvh w-full bg-white', isDesktop ? '' : 'mb-24')}
         >
-            <div className="xl:max-w-8xl relative mx-auto space-y-12 py-8 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
+            <div className="xl:max-w-8xl relative mx-auto space-y-12 py-8 px-4 sm:px-12 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
-                    <h2 className="font-bodoni text-5xl font-semibold tracking-tight sm:text-7xl">
+                    <h2 className="font-bodoni text-4xl font-semibold tracking-tight sm:text-5xl lg:text-7xl">
                         ART STUDY
                     </h2>
-                    <p className="font-red-rose text-center text-lg sm:text-xl">
+                    <p className="font-red-rose text-center text-base sm:text-lg md:text-xl">
                         “Get ready with my study and work hard for my dream.”🦢.⋆
                     </p>
                 </div>
-                <div className="grid grid-cols-1 place-items-center gap-x-12 gap-y-12 px-12 md:grid-cols-2 lg:grid-cols-3 2xl:gap-12">
+                <div className="grid grid-cols-1 place-items-center gap-x-12 gap-y-12  md:grid-cols-2 lg:grid-cols-3 2xl:gap-12">
                     {showcaseData.map((item) => (
                         <div key={item.id} className="h-auto w-full">
                             <MorphingDialog
