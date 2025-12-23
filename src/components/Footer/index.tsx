@@ -67,10 +67,10 @@ export default function Footer() {
                             <div className="font-red-rose space-y-4 text-base sm:text-lg md:text-xl">
                                 <h4 className="font-bold">Social</h4>
                                 <div className="flex flex-col gap-4 md:px-4">
-                                    <a href="">Tiktok</a>
-                                    <a href="">Instagram</a>
-                                    <a href="">Facebook</a>
-                                    <a href="https://beacons.ai/withaaudaily" target='_blank'>Behance</a>
+                                    <a href="https://www.tiktok.com/@withaaudaily" target="_blank" rel="noopener noreferrer">Tiktok</a>
+                                    <a href="https://www.instagram.com/aaubaovan/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                    <a href="" target="_blank" rel="noopener noreferrer">Youtube</a>
+                                    <a href="https://beacons.ai/withaaudaily" target='_blank' rel="noopener noreferrer">Behance</a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ export default function Footer() {
                             {new Date().toDateString()} ©Edition
                         </p>
                         <h1 className="leading-[0.8] italic text-3xl md:text-5xl lg:text-7xl">
-                            Let's work together
+                            Create Your Dream
                         </h1>
                     </div>
                 </div>
