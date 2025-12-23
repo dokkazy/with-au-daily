@@ -12,23 +12,23 @@ import aboutImg from "@/assets/about.jpg";
 
 const links = [
     {
-        title: 'Home',
-        href: '#home',
+        title: 'Study and beauty',
+        href: '#study-and-beauty',
         src: catImg
     },
     {
-        title: 'About',
-        href: '#about',
+        title: 'Art study',
+        href: '#art-study',
         src: aboutImg
     },
     {
-        title: 'Showcase',
-        href: '#showcase',
+        title: 'From a friend',
+        href: '#from-a-friend',
         src: heroImg
     },
     {
-        title: 'Contact',
-        href: '#contact',
+        title: 'Quiet becoming better',
+        href: '#quiet-becoming-better',
         src: whitehairImg
     },
 ];

@@ -36,7 +36,7 @@ export default function Footer() {
                     animate="enter"
                     exit="exit"
                 >
-                    <span>Made by:</span> Dokkazy
+                    <span>Made by:</span> <a href="https://www.instagram.com/hv.kon/" target="_blank">hv.kon</a>
                 </motion.li>
             </ul>
             <ul>

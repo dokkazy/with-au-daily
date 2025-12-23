@@ -21,31 +21,31 @@ const showcaseData = [
     {
         id: 1,
         title: 'Beauty 𝜗ৎ',
-        subtitle: 'Edouard Wilfrid Buquet',
+        subtitle: 'Rituels de Beauté et d’Âme',
         description:
-            'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
+            'Beauty là không gian nơi bạn quay về với cảm nhận tinh tế của chính mình. Ở đây, vẻ đẹp không bị định nghĩa bởi tiêu chuẩn, mà được nuôi dưỡng từ sự chậm rãi, chăm sóc và ý thức sống. ',
         longDescription:
-            'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
+            '',
         img: beautyImg,
     },
     {
         id: 2,
         title: 'Study 𝜗ৎ',
-        subtitle: 'Edouard Wilfrid Buquet',
+        subtitle: 'L’Art d’Étudier en Silence',
         description:
-            'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
+            'Study là không gian dành cho sự tập trung và khai mở trí tuệ. Tại đây, việc học không bị áp lực bởi thành tích, mà được dẫn dắt bởi sự tò mò và khao khát hiểu sâu. ',
         longDescription:
-            'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
+            '',
         img: studyImg,
     },
     {
         id: 3,
         title: 'Actitivties 𝜗ৎ',
-        subtitle: 'Edouard Wilfrid Buquet',
+        subtitle: 'Fragments d’une Vie Créative',
         description:
-            'Little is known about the life of Édouard-Wilfrid Buquet. He was born in France in 1866, but the time and place of his death is unfortunately a mystery.',
+            'Activities là không gian ghi lại những hành động nuôi dưỡng cuộc sống hằng ngày. Tại đây, mỗi hoạt động được lựa chọn một cách có ý thức, giúp bạn duy trì sự cân bằng giữa cơ thể, cảm xúc và trí tuệ. ',
         longDescription:
-            'Research conducted in the 1970s revealed that he’d designed the “EB 27” double-arm desk lamp in 1925, handcrafting it from nickel-plated brass, aluminium and varnished wood.',
+            '',
         img: activitiesImg,
     },
 ];
@@ -57,14 +57,14 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
 
     return (
         <motion.div
-            id="showcase"
+            id="art-study"
             style={isDesktop ? { scale, rotate } : {}}
             className={cn('relative min-h-dvh w-full bg-white', isDesktop ? '' : 'mb-24')}
         >
             <div className="xl:max-w-8xl relative mx-auto space-y-12 py-8 px-4 sm:px-12 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
                 <div className="flex h-full flex-col items-center justify-center space-y-6">
                     <h2 className="font-bodoni text-4xl font-semibold tracking-tight sm:text-5xl lg:text-7xl">
-                        ART STUDY
+                        ART STUDY 𝜗ৎ
                     </h2>
                     <p className="font-red-rose text-center text-base sm:text-lg md:text-xl">
                         “Get ready with my study and work hard for my dream.”🦢.⋆
@@ -144,11 +144,11 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                                 </p>
                                                 <a
                                                     className="font-red-rose mt-2 inline-flex text-white underline"
-                                                    href="https://www.are.na/block/12759029"
+                                                    href="https://www.notion.so/study-and-beauty-29f206edeb2b81929807de791857ba71"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
-                                                    Are.na block
+                                                    no.tion block
                                                 </a>
                                             </MorphingDialogDescription>
                                         </div>

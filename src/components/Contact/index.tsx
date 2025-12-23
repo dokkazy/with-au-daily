@@ -2,7 +2,7 @@ import RoudedButton from '../RoudedButton';
 import contactImg from '@/assets/contact.png';
 export default function Contact() {
     return (
-        <section id="contact" className="h-dvh w-full bg-[#ffd6e3]">
+        <section id="quiet-becoming-better" className="h-dvh w-full bg-[#ffd6e3]">
             <div className="absolute h-full w-full">
                 <img className="h-full w-full object-cover" src={contactImg} alt="Learn More Img" />
                 <div className="absolute top-1/2 left-1/2 flex w-full max-w-[90%] -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center space-y-4 px-4 text-black sm:max-w-150 sm:space-y-6 sm:px-0">
@@ -21,7 +21,7 @@ export default function Contact() {
                             href="https://www.notion.so/study-and-beauty-29f206edeb2b81929807de791857ba71"
                             target="_blank"
                         >
-                            <p>Mindset vibes</p>
+                            <p>Learn more</p>
                         </a>
                     </RoudedButton>
                 </div>

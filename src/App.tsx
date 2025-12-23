@@ -12,6 +12,8 @@ import Contact from './components/Contact';
 import Feedback from '@/components/Feedback';
 import { cn } from '@/lib/utils';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
+import Footer from '@/components/Footer';
+import { setLenisInstance } from '@/hooks/use-lenis';
 
 function App() {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -23,8 +25,12 @@ function App() {
         offset: ['start start', 'end end'],
     });
 
+    const lenisRef = useRef<Lenis | null>(null);
+
     useEffect(() => {
         const lenis = new Lenis();
+        lenisRef.current = lenis;
+        setLenisInstance(lenis);
 
         function raf(time: number) {
             lenis.raf(time);
@@ -40,36 +46,14 @@ function App() {
 
             window.scrollTo(0, 0);
         }, 2000);
+
+        return () => {
+            lenis.destroy();
+            setLenisInstance(null);
+        };
     }, [setLoading]);
 
     return (
-        // <>
-        //     {isDesktop ? (
-        //         <main>
-        //             <AnimatePresence mode="wait">
-        //                 {isLoading && (
-        //                     // <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-        //                     //     <DynamicText />
-        //                     // </div>
-        //                     <Preloader />
-        //                 )}
-        //             </AnimatePresence>
-        //             <Header />
-        //             <div ref={container} className={cn("relative", isDesktop ? "h-[200dvh]" : "min-h-[200dvh]")}>
-        //                 <Hero scrollYProgress={scrollYProgress} />
-        //                 <Showcase scrollYProgress={scrollYProgress} />
-        //             </div>
-        //             <Feedback />
-        //             <Contact />
-        //         </main>
-        //     ) : (
-        //         <div className="text-center">
-        //             <h1 className="font-red-rose absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-3xl font-bold">
-        //                 Trang web hiện tại chỉ tương thích với Desktop
-        //             </h1>
-        //         </div>
-        //     )}
-        // </>
         <main>
             <AnimatePresence mode="wait">
                 {isLoading && (
@@ -90,6 +74,7 @@ function App() {
             </div>
             <Feedback />
             <Contact />
+            <Footer />
         </main>
     );
 }
