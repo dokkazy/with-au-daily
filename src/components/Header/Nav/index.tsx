@@ -71,7 +71,7 @@ export default function Nav({setIsActive} : {setIsActive: (isActive: boolean) =>
                         setSelectedLink={setSelectedLink}
                         setIsActive={setIsActive}
                     />
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
                 <Image src={links[selectedLink.index].src} selectedLink={selectedLink} />
             </div>

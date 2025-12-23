@@ -13,9 +13,9 @@ export default function Footer() {
             className="relative h-150"
             style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
         >
-            <div className="fixed bottom-0 h-150 w-full">
-                <div className="flex h-full w-full flex-col justify-between bg-white px-4 py-12 sm:px-12 sm:py-8">
-                    <div className="flex flex-col items-center gap-8 pt-12 md:flex-row md:justify-around md:gap-0 md:pt-28">
+            <div className="fixed bottom-0  w-full h-150">
+                <div className="flex h-full w-full flex-col justify-between bg-white px-6 py-12 sm:px-12 sm:py-8">
+                    <div className="flex flex-col items-center gap-12 pt-12 md:flex-row md:justify-around md:gap-0 md:pt-28">
                         <div className="relative">
                             <img
                                 src={auImg}
@@ -30,8 +30,8 @@ export default function Footer() {
                                 className="custom-class absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                             />
                         </div>
-                        <div className="flex w-full justify-evenly md:w-auto md:justify-center md:gap-12 lg:gap-28 xl:gap-72">
-                            <div className="font-red-rose space-y-4 text-base sm:text-lg md:text-xl">
+                        <div className="flex w-full gap-4 justify-center min-[500px]:justify-evenly min-[870px]:gap-12 md:w-auto md:justify-center md:gap-6 lg:gap-28 xl:gap-72">
+                            <div className="font-red-rose space-y-4 text-sm min-[328px]:text-base sm:text-lg md:text-xl">
                                 <h4 className="font-bold">My Creative Dream</h4>
                                 <div className="flex flex-col gap-4 md:px-4">
                                     <a
@@ -64,21 +64,33 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </div>
-                            <div className="font-red-rose space-y-4 text-base sm:text-lg md:text-xl">
+                            <div className="font-red-rose space-y-4 text-sm min-[328px]:text-base sm:text-lg md:text-xl">
                                 <h4 className="font-bold">My Creative World</h4>
                                 <div className="flex flex-col gap-4 md:px-4">
-                                    <a href="https://www.tiktok.com/@withaaudaily" target="_blank" rel="noopener noreferrer">Tiktok</a>
-                                    <a href="https://www.instagram.com/aaubaovan/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                                    <a href="" target="_blank" rel="noopener noreferrer">Youtube</a>
+                                    <a
+                                        href="https://www.tiktok.com/@withaaudaily"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Tiktok
+                                    </a>
+                                    <a
+                                        href="https://www.instagram.com/aaubaovan/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Instagram
+                                    </a>
+                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                        Youtube
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="font-red-rose flex flex-col-reverse gap-6 lg:gap-0 lg:flex-row items-center lg:justify-around">
-                        <p className="text-sm md:text-base">
-                            {new Date().getFullYear()} ©Edition
-                        </p>
-                        <h1 className="leading-[0.8] italic text-3xl md:text-5xl lg:text-7xl">
+                    <div className="font-red-rose flex flex-col-reverse items-center gap-6 lg:flex-row lg:justify-around lg:gap-0">
+                        <p className="text-sm md:text-base">{new Date().getFullYear()} ©Edition</p>
+                        <h1 className="text-xl min-[328px]:text-3xl leading-[0.8] italic md:text-5xl lg:text-7xl">
                             Create Your Dream
                         </h1>
                     </div>
