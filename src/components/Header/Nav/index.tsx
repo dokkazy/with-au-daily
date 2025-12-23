@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import styles from './Nav.module.scss';
 import Body from '../Body';
 import Image from '../Image';
-import Footer from '../Footer';
 import menu1Img from '@/assets/menu1.jpg';
 import menu2Img from '@/assets/menu2.jpg';
 import menu3Img from '@/assets/menu3.jpg';
