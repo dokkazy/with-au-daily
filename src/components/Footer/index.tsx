@@ -32,7 +32,7 @@ export default function Footer() {
                         </div>
                         <div className="flex w-full justify-evenly md:w-auto md:justify-center md:gap-12 lg:gap-28 xl:gap-72">
                             <div className="font-red-rose space-y-4 text-base sm:text-lg md:text-xl">
-                                <h4 className="font-bold">Navigation</h4>
+                                <h4 className="font-bold">My Creative Dream</h4>
                                 <div className="flex flex-col gap-4 md:px-4">
                                     <a
                                         href="#study-and-beauty"
@@ -65,19 +65,18 @@ export default function Footer() {
                                 </div>
                             </div>
                             <div className="font-red-rose space-y-4 text-base sm:text-lg md:text-xl">
-                                <h4 className="font-bold">Social</h4>
+                                <h4 className="font-bold">My Creative World</h4>
                                 <div className="flex flex-col gap-4 md:px-4">
                                     <a href="https://www.tiktok.com/@withaaudaily" target="_blank" rel="noopener noreferrer">Tiktok</a>
                                     <a href="https://www.instagram.com/aaubaovan/" target="_blank" rel="noopener noreferrer">Instagram</a>
                                     <a href="" target="_blank" rel="noopener noreferrer">Youtube</a>
-                                    <a href="https://beacons.ai/withaaudaily" target='_blank' rel="noopener noreferrer">Behance</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="font-red-rose flex flex-col-reverse gap-6 lg:gap-0 lg:flex-row items-center lg:justify-around">
                         <p className="text-sm md:text-base">
-                            {new Date().toDateString()} ©Edition
+                            {new Date().getFullYear()} ©Edition
                         </p>
                         <h1 className="leading-[0.8] italic text-3xl md:text-5xl lg:text-7xl">
                             Create Your Dream
