@@ -5,31 +5,30 @@ import styles from './Nav.module.scss';
 import Body from '../Body';
 import Image from '../Image';
 import Footer from '../Footer';
-import heroImg from "@/assets/cat.png";
-import catImg from "@/assets/hero.jpg";
-import whitehairImg from "@/assets/whitehair.jpg";
-import aboutImg from "@/assets/about.jpg";
-
+import menu1Img from '@/assets/menu1.jpg';
+import menu2Img from '@/assets/menu2.jpg';
+import menu3Img from '@/assets/menu3.jpg';
+import menu4Img from '@/assets/menu4.jpg';
 const links = [
     {
         title: 'Study and beauty',
         href: '#study-and-beauty',
-        src: catImg
+        src: menu1Img
     },
     {
         title: 'Art study',
         href: '#art-study',
-        src: aboutImg
+        src: menu2Img
     },
     {
         title: 'From a friend',
         href: '#from-a-friend',
-        src: heroImg
+        src: menu3Img
     },
     {
         title: 'Quiet becoming better',
         href: '#quiet-becoming-better',
-        src: whitehairImg
+        src: menu4Img
     },
 ];
 
