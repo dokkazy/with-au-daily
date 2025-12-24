@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import styles from './Body.module.scss';
 import type { JSX } from 'react';
+import { useSmoothScroll } from '@/hooks/use-lenis';
 
 const blur = {
     initial: {
@@ -53,6 +54,14 @@ type BodyProps = {
 };
 
 export default function Body({ links, selectedLink, setSelectedLink, setIsActive }: BodyProps) {
+    // Create scroll handlers for each link (must be called at top level)
+    const scrollHandlers = [
+        useSmoothScroll(links[0].href),
+        useSmoothScroll(links[1].href),
+        useSmoothScroll(links[2].href),
+        useSmoothScroll(links[3].href),
+    ];
+
     const getChars = (word: string) => {
         const chars: JSX.Element[] = [];
         word.split('').forEach((char, i) => {
@@ -76,8 +85,16 @@ export default function Body({ links, selectedLink, setSelectedLink, setIsActive
         <div className={styles.body}>
             {links.map((link, index) => {
                 const { title, href } = link;
+
                 return (
-                    <a key={`l_${index}`} href={href} onClick={() => setIsActive(false)}>
+                    <a
+                        key={`l_${index}`}
+                        href={href}
+                        onClick={(e) => {
+                            scrollHandlers[index](e);
+                            setIsActive(false);
+                        }}
+                    >
                         <motion.p
                             onMouseOver={() => {
                                 setSelectedLink({ isActive: true, index });
