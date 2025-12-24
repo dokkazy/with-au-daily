@@ -55,14 +55,7 @@ function App() {
 
     return (
         <main>
-            <AnimatePresence mode="wait">
-                {isLoading && (
-                    // <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-                    //     <DynamicText />
-                    // </div>
-                    <Preloader />
-                )}
-            </AnimatePresence>
+            <AnimatePresence mode="wait">{isLoading && <Preloader />}</AnimatePresence>
             <ScrollProgress className="top-0" />
             <Header />
             <div
