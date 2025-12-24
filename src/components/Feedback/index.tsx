@@ -23,8 +23,8 @@ export default function Feedback() {
                                 cũng không thể xem thường một pháp sư tài năng như tôi.
                             </p>
                             <p className="font-red-rose max-w-lg text-base text-[#F4F0EA] sm:text-lg md:text-xl lg:text-left">
-                                Nói nhỏ với nhau nhé, <strong className="italic">Mr./Ms</strong>{' '}
-                                —Phép thuật của tôi biến giấc mơ thành hiện thực.
+                                Nói nhỏ với nhau nhé, <strong className="italic">Mr./Ms.</strong>
+                            {' '}Phép thuật của tôi biến giấc mơ thành hiện thực.
                             </p>
                         </div>
                     </div>

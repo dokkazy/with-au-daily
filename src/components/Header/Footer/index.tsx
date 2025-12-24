@@ -36,7 +36,7 @@ export default function Footer() {
                     animate="enter"
                     exit="exit"
                 >
-                    <span>Made by:</span> <a href="https://www.instagram.com/hv.kon/" target="_blank">hv.kon</a>
+                    <span>Creative Director:</span> Âu Vân
                 </motion.li>
             </ul>
             <ul>
@@ -47,38 +47,7 @@ export default function Footer() {
                     animate="enter"
                     exit="exit"
                 >
-                    <span>Typography:</span> Google Fonts
-                </motion.li>
-            </ul>
-            <ul>
-                <motion.li
-                    custom={[0.3, 0]}
-                    variants={translate}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                >
-                    <span>Images:</span> Pinterest
-                </motion.li>
-            </ul>
-            <ul>
-                <motion.li
-                    custom={[0.3, 0]}
-                    variants={translate}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                >
-                    Privacy Policy
-                </motion.li>
-                <motion.li
-                    custom={[0.3, 0]}
-                    variants={translate}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                >
-                    Terms & Conditions
+                    <span>Creative Developer:</span> Công Huy
                 </motion.li>
             </ul>
         </div>

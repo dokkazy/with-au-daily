@@ -8,6 +8,7 @@ import menu1Img from '@/assets/menu1.jpg';
 import menu2Img from '@/assets/menu2.jpg';
 import menu3Img from '@/assets/menu3.jpg';
 import menu4Img from '@/assets/menu4.jpg';
+import Footer from '@/components/Header/Footer';
 const links = [
     {
         title: 'Study and beauty',
@@ -70,7 +71,7 @@ export default function Nav({setIsActive} : {setIsActive: (isActive: boolean) =>
                         setSelectedLink={setSelectedLink}
                         setIsActive={setIsActive}
                     />
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
                 <Image src={links[selectedLink.index].src} selectedLink={selectedLink} />
             </div>

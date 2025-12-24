@@ -41,7 +41,7 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
                                 buổi sáng bắt đầu bằng sự chăm sóc bản thân, và mỗi tối kết thúc bằng
                                 việc tiến gần hơn đến ước mơ.
                             </p>
-                            <ShinyButton className="font-red-rose border-2 bg-white text-black">
+                            <ShinyButton className="font-red-rose border-2 rounded-4xl bg-white text-black">
                                 Mindset vibes
                             </ShinyButton>
                         </div>
