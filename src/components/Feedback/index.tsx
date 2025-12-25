@@ -49,7 +49,7 @@ export default function Feedback() {
                         <div className="absolute right-[-5%] z-10 w-85 rotate-[-5deg] bg-white px-12 py-12 text-sm leading-10 shadow-[0_10px_25px_rgba(0,0,0,0.12)] sm:right-[-20%] sm:text-base lg:h-120 xl:right-[-20%] xl:w-95 xl:py-24">
                             <p className="font-red-rose">
                                 I would love to say that so glaaaad to know about this{' '}
-                                <Highlighter action="underline" color="#ffd1dc">
+                                <Highlighter action="underline" color="var(--red-inferno)">
                                     lovely template
                                 </Highlighter>
                                 . It’s charming but not giving any border of imagination to
