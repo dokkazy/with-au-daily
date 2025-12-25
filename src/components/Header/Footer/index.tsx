@@ -47,7 +47,10 @@ export default function Footer() {
                     animate="enter"
                     exit="exit"
                 >
-                    <span>Creative Developer:</span> Công Huy
+                    <span>Creative Developer:</span>{' '}
+                    <a href="https://github.com/dokkazy/with-au-daily" target="_blank" rel="noopener noreferrer">
+                        Công Huy
+                    </a>
                 </motion.li>
             </ul>
         </div>
