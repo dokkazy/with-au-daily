@@ -4,31 +4,31 @@ import { motion } from 'motion/react';
 import styles from './Nav.module.scss';
 import Body from '../Body';
 import Image from '../Image';
-import menu1Img from '@/assets/menu1.jpg';
-import menu2Img from '@/assets/menu2.jpg';
-import menu3Img from '@/assets/menu3.jpg';
-import menu4Img from '@/assets/menu4.jpg';
+import menu1Img from '@/assets/images/menu1.jpg';
+import menu2Img from '@/assets/images/menu2.jpg';
+import menu3Img from '@/assets/images/menu3.jpg';
+import menu4Img from '@/assets/images/menu4.jpg';
 import Footer from '@/components/Header/Footer';
 const links = [
     {
         title: 'Study and beauty',
         href: '#study-and-beauty',
-        src: menu1Img
+        src: menu1Img,
     },
     {
         title: 'Art study',
         href: '#art-study',
-        src: menu2Img
+        src: menu2Img,
     },
     {
         title: 'From a friend',
         href: '#from-a-friend',
-        src: menu3Img
+        src: menu3Img,
     },
     {
         title: 'Quiet becoming better',
         href: '#quiet-becoming-better',
-        src: menu4Img
+        src: menu4Img,
     },
 ];
 
@@ -52,7 +52,7 @@ const height = {
     },
 };
 
-export default function Nav({setIsActive} : {setIsActive: (isActive: boolean) => void}) {
+export default function Nav({ setIsActive }: { setIsActive: (isActive: boolean) => void }) {
     const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
 
     return (

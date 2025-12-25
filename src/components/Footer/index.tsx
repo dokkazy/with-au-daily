@@ -1,5 +1,5 @@
 import CircularText from '@/components/ui/circular-text';
-import auImg from '@/assets/au-img2.jpg';
+import auImg from '@/assets/images/au-img2.jpg';
 import { useSmoothScroll } from '@/hooks/use-lenis';
 import { SparklesText } from '@/components/ui/sparkle';
 

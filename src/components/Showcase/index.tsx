@@ -12,9 +12,9 @@ import {
     MorphingDialogDescription,
     MorphingDialogContainer,
 } from './morphing-dialog';
-import beautyImg from '@/assets/beauty.jpg';
-import studyImg from '@/assets/study.jpg';
-import activitiesImg from '@/assets/actitvities.jpg';
+import beautyImg from '@/assets/images/beauty.jpg';
+import studyImg from '@/assets/images/study.jpg';
+import activitiesImg from '@/assets/images/actitvities.jpg';
 import { cn } from '@/lib/utils';
 
 const showcaseData = [

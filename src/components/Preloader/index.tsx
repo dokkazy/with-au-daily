@@ -23,15 +23,27 @@ const slideUp = {
     },
 };
 
-const words = ['Xin chào' ,'Hello', 'Bonjour', 'Ciao', 'Olà', 'やあ', 'Hallå', 'Guten tag', 'Hallo'];
+const words = [
+    'Xin chào',
+    'Hello',
+    'Bonjour',
+    'Ciao',
+    'Olà',
+    'やあ',
+    'Hallå',
+    'Guten tag',
+    'Hallo',
+];
 
 export default function Preloader() {
     const [index, setIndex] = useState(0);
-    const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
-    useEffect(() => {
-        setDimension({ width: window.innerWidth, height: window.innerHeight });
-    }, []);
+    const [dimension] = useState(() => {
+        // Lazy initializer: only runs once on mount
+        if (typeof window !== 'undefined') {
+            return { width: window.innerWidth, height: window.innerHeight };
+        }
+        return { width: 0, height: 0 };
+    });
 
     useEffect(() => {
         if (index == words.length - 1) return;

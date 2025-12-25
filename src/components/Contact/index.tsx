@@ -1,6 +1,6 @@
 import { Highlighter } from '@/components/ui/highlighter';
 import RoudedButton from '../ui/RoudedButton';
-import quiteImg from '@/assets/menu4.jpg';
+import quiteImg from '@/assets/images/menu4.jpg';
 
 export default function Contact() {
     return (

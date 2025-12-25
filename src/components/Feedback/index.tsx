@@ -1,6 +1,6 @@
-import feedbackImg from '@/assets/template.jpg';
-import paperClip from '@/assets/paper-clip.png';
-import kiss from '@/assets/kiss.png';
+import feedbackImg from '@/assets/images/template.jpg';
+import paperClip from '@/assets/images/paper-clip.png';
+import kiss from '@/assets/images/kiss.png';
 import { Highlighter } from '@/components/ui/highlighter';
 
 export default function Feedback() {
@@ -23,8 +23,8 @@ export default function Feedback() {
                                 cũng không thể xem thường một pháp sư tài năng như tôi.
                             </p>
                             <p className="font-red-rose max-w-lg text-base text-[#F4F0EA] sm:text-lg md:text-xl lg:text-left">
-                                Nói nhỏ với nhau nhé, <strong className="italic">Mr./Ms.</strong>
-                            {' '}Phép thuật của tôi biến giấc mơ thành hiện thực.
+                                Nói nhỏ với nhau nhé, <strong className="italic">Mr./Ms.</strong>{' '}
+                                Phép thuật của tôi biến giấc mơ thành hiện thực.
                             </p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ export default function Feedback() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative h-full max-w-90 transform max-sm:hidden max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 xl:max-w-120 [1170px]:max-w-105">
+                    <div className="relative h-full max-w-90 transform max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-sm:hidden xl:max-w-120 [1170px]:max-w-105">
                         <div className="absolute rotate-[5deg] max-lg:left-[-20%] max-sm:left-[-5%]">
                             <img className="h-110 w-full sm:h-120" src={feedbackImg} alt="" />
                             <div className="absolute -top-8 left-0">

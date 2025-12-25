@@ -1,7 +1,7 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 import { useMediaQuery } from 'react-responsive';
 import { ShinyButton } from '@/components/ui/shiny-button';
-import auImg from '@/assets/au-img.jpg';
+import auImg from '@/assets/images/au-img.jpg';
 import { cn } from '@/lib/utils';
 // const charVariants = {
 //     hidden: { y: '100%', opacity: 0 },
@@ -22,7 +22,7 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
     return (
-       <section id="study-and-beauty">
+        <section id="study-and-beauty">
             <motion.div
                 style={isDesktop ? { scale, rotate } : {}}
                 className={cn('w-full', isDesktop ? 'sticky top-0 h-dvh' : 'mb-24 min-h-dvh')}
@@ -37,15 +37,15 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
                             </h2>
                             <p className="font-red-rose max-w-lg text-left text-base sm:text-lg md:text-xl">
                                 Không gian nhỏ để bạn{' '}
-                                <strong className="italic">get ready with your life</strong> 𝜗ৎ nơi mỗi
-                                buổi sáng bắt đầu bằng sự chăm sóc bản thân, và mỗi tối kết thúc bằng
-                                việc tiến gần hơn đến ước mơ.
+                                <strong className="italic">get ready with your life</strong> 𝜗ৎ nơi
+                                mỗi buổi sáng bắt đầu bằng sự chăm sóc bản thân, và mỗi tối kết thúc
+                                bằng việc tiến gần hơn đến ước mơ.
                             </p>
-                            <ShinyButton className="font-red-rose border-2 rounded-4xl bg-white text-black">
+                            <ShinyButton className="font-red-rose rounded-4xl border-2 bg-white text-black">
                                 Mindset vibes
                             </ShinyButton>
                         </div>
-    
+
                         {/* Image - Right Column */}
                         <div className="flex items-center justify-center overflow-hidden lg:h-150 lg:w-100 xl:w-120">
                             <img
@@ -57,6 +57,6 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
                     </div>
                 </div>
             </motion.div>
-       </section>
+        </section>
     );
 }
