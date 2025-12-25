@@ -28,7 +28,7 @@ export default function Feedback() {
                             </p>
                         </div>
                     </div>
-                    <div className="hidden max-[451px]:flex max-[451px]:justify-center">
+                    <div className="hidden max-sm:flex max-sm:justify-center">
                         <div className="relative">
                             <img className="h-110 w-fit sm:h-120" src={feedbackImg} alt="" />
                             <div className="absolute -top-8 left-0">
@@ -39,7 +39,7 @@ export default function Feedback() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative h-full max-w-90 transform max-[451px]:hidden max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 xl:max-w-120 [1170px]:max-w-105">
+                    <div className="relative h-full max-w-90 transform max-sm:hidden max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 xl:max-w-120 [1170px]:max-w-105">
                         <div className="absolute rotate-[5deg] max-lg:left-[-20%] max-sm:left-[-5%]">
                             <img className="h-110 w-full sm:h-120" src={feedbackImg} alt="" />
                             <div className="absolute -top-8 left-0">

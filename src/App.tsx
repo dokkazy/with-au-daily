@@ -47,6 +47,38 @@ function App() {
             window.scrollTo(0, 0);
         }, 2000);
 
+        // Christmas themed console.log
+        console.log(
+            '%c       🌟\n' +
+                '%c      /|\\\n' +
+                '%c     /*|O\\\n' +
+                '%c    /*/|\\*\\\n' +
+                '%c   /O/\\|/*\\\n' +
+                '%c  /*/O\\|/\\*\\\n' +
+                '%c /O/*\\|/O\\*\\\n' +
+                '%c/*/O\\*/\\*\\O\\\n' +
+                '%c      |||\n' +
+                '%c      |||\n' +
+                '%c━━━━━━━━━━━━━━\n' +
+                '%c✨ with au daily ✨\n' +
+                '%c━━━━━━━━━━━━━━\n' +
+                '%cMerry Christmas! 🎄🎅🎁',
+            'color: #FFD700; font-size: 20px; font-weight: bold;', // Star
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree top
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree
+            'color: #228B22; font-size: 16px; font-weight: bold;', // Tree bottom
+            'color: #8B4513; font-size: 16px; font-weight: bold;', // Trunk
+            'color: #8B4513; font-size: 16px; font-weight: bold;', // Trunk
+            'color: #DC143C; font-size: 14px; font-weight: bold;', // Border
+            'color: #FF1493; font-size: 18px; font-weight: bold; text-shadow: 0 0 10px #FFD700;', // with au daily
+            'color: #DC143C; font-size: 14px; font-weight: bold;', // Border
+            'color: #32CD32; font-size: 14px; font-weight: bold;' // Greeting
+        );
+
         return () => {
             lenis.destroy();
             setLenisInstance(null);
