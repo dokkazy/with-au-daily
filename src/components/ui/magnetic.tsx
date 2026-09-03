@@ -1,34 +1,48 @@
-import { useRef, useState } from 'react'
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { gsap, useGSAP } from '@/lib/gsap';
 
-export default function Magnetic({children}: {children: React.ReactNode}) {
+export default function Magnetic({ children }: { children: React.ReactNode }) {
     const ref = useRef<HTMLDivElement>(null);
-    const [position, setPosition] = useState({x:0,y:0});
+    const xTo = useRef<gsap.QuickToFunc | null>(null);
+    const yTo = useRef<gsap.QuickToFunc | null>(null);
+
+    useGSAP(
+        () => {
+            xTo.current = gsap.quickTo(ref.current, 'x', {
+                duration: 0.4,
+                ease: 'elastic.out(1, 0.4)',
+            });
+            yTo.current = gsap.quickTo(ref.current, 'y', {
+                duration: 0.4,
+                ease: 'elastic.out(1, 0.4)',
+            });
+        },
+        { scope: ref }
+    );
 
     const handleMouse = (e: React.MouseEvent) => {
         const { clientX, clientY } = e;
-        const {height, width, left, top} = ref.current?.getBoundingClientRect() || {};
+        const { height, width, left, top } = ref.current?.getBoundingClientRect() || {};
         if (!height || !width || !left || !top) return;
-        const middleX = clientX - (left + width/2)
-        const middleY = clientY - (top + height/2)
-        setPosition({x: middleX, y: middleY})
-    }
+        const middleX = clientX - (left + width / 2);
+        const middleY = clientY - (top + height / 2);
+        xTo.current?.(middleX);
+        yTo.current?.(middleY);
+    };
 
     const reset = () => {
-        setPosition({x:0, y:0})
-    }
+        xTo.current?.(0);
+        yTo.current?.(0);
+    };
 
-    const { x, y } = position;
     return (
-        <motion.div
-            style={{position: "relative"}}
+        <div
+            style={{ position: 'relative' }}
             ref={ref}
             onMouseMove={handleMouse}
             onMouseLeave={reset}
-            animate={{x, y}}
-            transition={{type: "spring", stiffness: 150, damping: 15, mass: 0.1}}
         >
             {children}
-        </motion.div>
-    )
+        </div>
+    );
 }

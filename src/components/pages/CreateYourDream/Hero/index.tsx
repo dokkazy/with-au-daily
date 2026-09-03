@@ -1,4 +1,5 @@
-import { motion, MotionValue, useTransform } from 'motion/react';
+import { useRef } from 'react';
+import { gsap, useGSAP } from '@/lib/gsap';
 import { useMediaQuery } from 'react-responsive';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import auImg from '@/assets/images/au-img.jpg';
@@ -16,15 +17,37 @@ import { cn } from '@/lib/utils';
 //     },
 // };
 
-export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+export default function Hero() {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+    const sectionRef = useRef<HTMLElement>(null);
+    const stickyRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            if (!isDesktop) return;
+            gsap.fromTo(
+                stickyRef.current,
+                { scale: 1, rotate: 0 },
+                {
+                    scale: 0.8,
+                    rotate: -5,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '#page-scroll',
+                        start: 'top top',
+                        end: 'bottom bottom',
+                        scrub: true,
+                    },
+                }
+            );
+        },
+        { dependencies: [isDesktop] }
+    );
 
     return (
-        <section id="study-and-beauty">
-            <motion.div
-                style={isDesktop ? { scale, rotate } : {}}
+        <section id="study-and-beauty" ref={sectionRef}>
+            <div
+                ref={stickyRef}
                 className={cn('w-full', isDesktop ? 'sticky top-0 h-dvh' : 'mb-24 min-h-dvh')}
             >
                 <div className="xl:max-w-8xl relative container mx-auto px-4 pt-24 sm:px-8 md:px-16 lg:max-w-7xl">
@@ -56,7 +79,7 @@ export default function Hero({ scrollYProgress }: { scrollYProgress: MotionValue
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }

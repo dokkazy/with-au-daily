@@ -1,4 +1,5 @@
-import { motion, MotionValue, useTransform } from 'motion/react';
+import { useRef } from 'react';
+import { gsap, useGSAP } from '@/lib/gsap';
 import { PlusIcon } from 'lucide-react';
 import { useMediaQuery } from 'react-responsive';
 import {
@@ -47,15 +48,35 @@ const showcaseData = [
     },
 ];
 
-export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+export default function Showcase() {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [1, 0]);
+    const rootRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            if (!isDesktop) return;
+            gsap.fromTo(
+                rootRef.current,
+                { rotate: 1 },
+                {
+                    rotate: 0,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '#page-scroll',
+                        start: 'top top',
+                        end: 'bottom bottom',
+                        scrub: true,
+                    },
+                }
+            );
+        },
+        { dependencies: [isDesktop] }
+    );
 
     return (
-        <motion.div
+        <div
+            ref={rootRef}
             id="art-study"
-            style={isDesktop ? { scale, rotate } : {}}
             className={cn('relative min-h-dvh w-full bg-white', isDesktop ? '' : 'mb-24')}
         >
             <div className="xl:max-w-8xl relative mx-auto space-y-12 px-4 py-8 sm:px-12 lg:max-w-7xl 2xl:space-y-16 2xl:py-12">
@@ -70,13 +91,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                 <div className="grid grid-cols-1 place-items-center gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3 2xl:gap-12">
                     {showcaseData.map((item) => (
                         <div key={item.id} className="h-auto w-full">
-                            <MorphingDialog
-                                transition={{
-                                    type: 'spring',
-                                    bounce: 0.05,
-                                    duration: 0.25,
-                                }}
-                            >
+                            <MorphingDialog>
                                 <MorphingDialogTrigger
                                     style={{
                                         borderRadius: '12px',
@@ -126,14 +141,7 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                                             <MorphingDialogSubtitle className="font-red-rose text-white dark:text-zinc-400">
                                                 {item.subtitle}
                                             </MorphingDialogSubtitle>
-                                            <MorphingDialogDescription
-                                                disableLayoutAnimation
-                                                variants={{
-                                                    initial: { opacity: 0, scale: 0.8, y: 100 },
-                                                    animate: { opacity: 1, scale: 1, y: 0 },
-                                                    exit: { opacity: 0, scale: 0.8, y: 100 },
-                                                }}
-                                            >
+                                            <MorphingDialogDescription>
                                                 <p className="font-red-rose mt-2 text-white dark:text-zinc-500">
                                                     {item.description}
                                                 </p>
@@ -158,6 +166,6 @@ export default function Showcase({ scrollYProgress }: { scrollYProgress: MotionV
                     ))}
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

@@ -1,22 +1,14 @@
-import Lenis from 'lenis';
-
-let lenisInstance: Lenis | null = null;
-
-export function useLenis() {
-    return lenisInstance;
-}
-
-export function setLenisInstance(lenis: Lenis | null) {
-    lenisInstance = lenis;
-}
+import { useLenis } from 'lenis/react';
 
 export function useSmoothScroll(target: string) {
+    const lenis = useLenis();
+
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
 
-        if (lenisInstance) {
+        if (lenis) {
             // Use Lenis scrollTo method for smooth scroll
-            lenisInstance.scrollTo(target, {
+            lenis.scrollTo(target, {
                 offset: 0,
                 duration: 1.2,
                 easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

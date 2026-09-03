@@ -1,17 +1,16 @@
-import { useEffect, useRef } from "react"
-import type React from "react"
-import { useInView } from "motion/react"
-import { annotate } from "rough-notation"
-import { type RoughAnnotation } from "rough-notation/lib/model"
+import { useEffect, useRef, useState } from 'react'
+import type React from 'react'
+import { annotate } from 'rough-notation'
+import { type RoughAnnotation } from 'rough-notation/lib/model'
 
 type AnnotationAction =
-  | "highlight"
-  | "underline"
-  | "box"
-  | "circle"
-  | "strike-through"
-  | "crossed-off"
-  | "bracket"
+  | 'highlight'
+  | 'underline'
+  | 'box'
+  | 'circle'
+  | 'strike-through'
+  | 'crossed-off'
+  | 'bracket'
 
 interface HighlighterProps {
   children: React.ReactNode
@@ -27,8 +26,8 @@ interface HighlighterProps {
 
 export function Highlighter({
   children,
-  action = "highlight",
-  color = "#ffd1dc",
+  action = 'highlight',
+  color = '#ffd1dc',
   strokeWidth = 1.5,
   animationDuration = 600,
   iterations = 2,
@@ -39,10 +38,23 @@ export function Highlighter({
   const elementRef = useRef<HTMLSpanElement>(null)
   const annotationRef = useRef<RoughAnnotation | null>(null)
 
-  const isInView = useInView(elementRef, {
-    once: true,
-    margin: "-10%",
-  })
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '-10%' }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
 
   // If isView is false, always show. If isView is true, wait for inView
   const shouldShow = !isView || isInView

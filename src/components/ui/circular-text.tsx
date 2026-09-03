@@ -1,123 +1,95 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation, useMotionValue, MotionValue, type Transition } from 'motion/react';
+import React, { useRef } from 'react';
+import { gsap, useGSAP } from '@/lib/gsap';
 import { cn } from '@/lib/utils';
+
 interface CircularTextProps {
-  text: string;
-  spinDuration?: number;
-  onHover?: 'slowDown' | 'speedUp' | 'pause' | 'goBonkers';
-  className?: string;
+    text: string;
+    spinDuration?: number;
+    onHover?: 'slowDown' | 'speedUp' | 'pause' | 'goBonkers';
+    className?: string;
 }
 
-const getRotationTransition = (duration: number, from: number, loop: boolean = true) => ({
-  from,
-  to: from + 360,
-  ease: 'linear' as const,
-  duration,
-  type: 'tween' as const,
-  repeat: loop ? Infinity : 0
-});
-
-const getTransition = (duration: number, from: number) => ({
-  rotate: getRotationTransition(duration, from),
-  scale: {
-    type: 'spring' as const,
-    damping: 20,
-    stiffness: 300
-  }
-});
-
 const CircularText: React.FC<CircularTextProps> = ({
-  text,
-  spinDuration = 20,
-  onHover = 'speedUp',
-  className = ''
+    text,
+    spinDuration = 20,
+    onHover = 'speedUp',
+    className = '',
 }) => {
-  const letters = Array.from(text);
-  const controls = useAnimation();
-  const rotation: MotionValue<number> = useMotionValue(0);
+    const letters = Array.from(text);
+    const rootRef = useRef<HTMLDivElement>(null);
+    const spinTween = useRef<gsap.core.Tween | null>(null);
 
-  useEffect(() => {
-    const start = rotation.get();
-    controls.start({
-      rotate: start + 360,
-      scale: 1,
-      transition: getTransition(spinDuration, start)
-    });
-  }, [spinDuration, text, onHover, controls]);
+    useGSAP(
+        () => {
+            spinTween.current?.kill();
+            spinTween.current = gsap.to(rootRef.current, {
+                rotation: '+=360',
+                duration: spinDuration,
+                ease: 'none',
+                repeat: -1,
+            });
+        },
+        { dependencies: [spinDuration, text] }
+    );
 
-  const handleHoverStart = () => {
-    const start = rotation.get();
+    const setTimeScale = (value: number) => {
+        if (spinTween.current) {
+            gsap.to(spinTween.current, { timeScale: value, duration: 0.3 });
+        }
+    };
 
-    if (!onHover) return;
+    const handleHoverStart = () => {
+        switch (onHover) {
+            case 'slowDown':
+                setTimeScale(0.5);
+                break;
+            case 'speedUp':
+                setTimeScale(4);
+                break;
+            case 'pause':
+                setTimeScale(0);
+                break;
+            case 'goBonkers':
+                setTimeScale(20);
+                gsap.to(rootRef.current, { scale: 0.8, duration: 0.3 });
+                break;
+        }
+    };
 
-    let transitionConfig: ReturnType<typeof getTransition> | Transition;
-    let scaleVal = 1;
+    const handleHoverEnd = () => {
+        setTimeScale(1);
+        gsap.to(rootRef.current, { scale: 1, duration: 0.3 });
+    };
 
-    switch (onHover) {
-      case 'slowDown':
-        transitionConfig = getTransition(spinDuration * 2, start);
-        break;
-      case 'speedUp':
-        transitionConfig = getTransition(spinDuration / 4, start);
-        break;
-      case 'pause':
-        transitionConfig = {
-          rotate: { type: 'spring', damping: 20, stiffness: 300 },
-          scale: { type: 'spring', damping: 20, stiffness: 300 }
-        };
-        break;
-      case 'goBonkers':
-        transitionConfig = getTransition(spinDuration / 20, start);
-        scaleVal = 0.8;
-        break;
-      default:
-        transitionConfig = getTransition(spinDuration, start);
-    }
+    return (
+        <div
+            ref={rootRef}
+            className={cn(
+                'font-red-rose relative m-0 mx-auto h-50 w-50 origin-center cursor-pointer rounded-full text-center font-bold text-black lg:h-60 lg:w-60',
+                className
+            )}
+            onMouseEnter={handleHoverStart}
+            onMouseLeave={handleHoverEnd}
+        >
+            {letters.map((letter, i) => {
+                const rotationDeg = (360 / letters.length) * i;
+                const factor = Math.PI / letters.length;
+                const x = factor * i;
+                const y = factor * i;
+                const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
 
-    controls.start({
-      rotate: start + 360,
-      scale: scaleVal,
-      transition: transitionConfig
-    });
-  };
-
-  const handleHoverEnd = () => {
-    const start = rotation.get();
-    controls.start({
-      rotate: start + 360,
-      scale: 1,
-      transition: getTransition(spinDuration, start)
-    });
-  };
-
-  return (
-    <motion.div
-      className={cn(`m-0 mx-auto rounded-full w-50 h-50 lg:w-60 lg:h-60 relative font-bold text-black font-red-rose text-center cursor-pointer origin-center`, className)}
-      style={{ rotate: rotation }}
-      initial={{ rotate: 0 }}
-      animate={controls}
-      onMouseEnter={handleHoverStart}
-      onMouseLeave={handleHoverEnd}
-    >
-      {letters.map((letter, i) => {
-        const rotationDeg = (360 / letters.length) * i;
-        const factor = Math.PI / letters.length;
-        const x = factor * i;
-        const y = factor * i;
-        const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
-
-        return (
-          <span
-            key={i}
-            className="absolute inline-block inset-0 text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
-            style={{ transform, WebkitTransform: transform }}
-          >
-            {letter}
-          </span>
-        );
-      })}
-    </motion.div>
-  );
+                return (
+                    <span
+                        key={i}
+                        className="absolute inset-0 inline-block text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
+                        style={{ transform, WebkitTransform: transform }}
+                    >
+                        {letter}
+                    </span>
+                );
+            })}
+        </div>
+    );
 };
 
 export default CircularText;
